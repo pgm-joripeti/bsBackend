@@ -31,10 +31,6 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use("/api/stripe", webhookRoutes); // moet voor de json parser komen van express.json()
-
-app.use(express.json());
-
 // Middleware
 app.use(cors({
   origin: [
@@ -44,6 +40,10 @@ app.use(cors({
   ],
   credentials: true // indien we met cookies zouden werken
 }));
+
+app.use("/api/stripe", webhookRoutes); // moet voor de json parser komen van express.json()
+
+app.use(express.json());
 
 // content security policy om images van supabase toe te staan en onze pagina's in te laden (maar geen flash of andere objecten)
 // ✅ Helmet gebruiken met Content Security Policy (CSP)
