@@ -6,7 +6,7 @@ import helmet from "helmet";
 // Importeer routes
 import authRoutes from "./routes/authRoutes.js";
 import databaseRoutes from "./routes/databaseRoutes.js";
-import frontendRoutes from "./routes/frontendRoutes.js";
+// import frontendRoutes from "./routes/frontendRoutes.js";
 import quizRoutes from "./routes/quizRoutes.js";
 import dropdownRoutes from "./routes/dropdownRoutes.js";
 import studentProfileRoutes from "./routes/studentProfileRoutes.js";
@@ -89,7 +89,7 @@ app.use(helmet.xssFilter()); // Basis XSS bescherming. Dit voorkomt dat een aanv
 // app.use(express.static(path.join(__dirname, "../frontend")));
 
 // **Gebruik de routes**
-app.use("/", frontendRoutes);
+// app.use("/", frontendRoutes);
 app.use("/api", dropdownRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/database", databaseRoutes); 
