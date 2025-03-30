@@ -39,7 +39,8 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://a9ab-2a02-a03f-eafa-9000-a4a6-25f-4866-7f26.ngrok-free.app"
+    "https://a9ab-2a02-a03f-eafa-9000-a4a6-25f-4866-7f26.ngrok-free.app",
+    "https://bs-frontend-silk.vercel.app"
   ],
   credentials: true // indien we met cookies zouden werken
 }));
