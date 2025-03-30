@@ -28,8 +28,7 @@ import { fileURLToPath } from "url";
 
 dotenv.config();
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+app.options("*", cors()); // ✅ Laat alle OPTIONS preflight requests toe
 
 // Middleware
 app.use(cors({
@@ -42,6 +41,9 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true // indien we met cookies zouden werken
 }));
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use("/api/stripe", webhookRoutes); // moet voor de json parser komen van express.json()
 
