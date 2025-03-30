@@ -38,6 +38,8 @@ app.use(cors({
     "https://a9ab-2a02-a03f-eafa-9000-a4a6-25f-4866-7f26.ngrok-free.app",
     "https://bs-frontend-silk.vercel.app"
   ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true // indien we met cookies zouden werken
 }));
 
