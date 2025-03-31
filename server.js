@@ -124,3 +124,8 @@ app.use((req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server draait op http://localhost:${PORT}`));
+
+// fallback voor SPA routing
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});

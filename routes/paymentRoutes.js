@@ -20,15 +20,15 @@ router.post("/create-checkout-session", async (req, res) => {
             mode: "payment",
             line_items: [
                 {
-                    price: "price_1R6fEPI19looCLiZqAE1HhCp", // ✅ vervang dit door jouw echte prijs-ID!
+                    price: "price_1R6fEPI19looCLiZqAE1HhCp", // stripe price-ID
                     quantity: 1,
                 },
             ],
             metadata: {
                 user_id: userId, // Nodig voor webhook
             },
-            success_url: `http://localhost:5173/dashboard_student`,
-            cancel_url: `${domainUrl}/dashboard_student`,
+            success_url: `${domainUrl}/dashboard_student?payment=success`, // success en cancel geven we terug zodat we gepaste boodschap kunnen geven erna
+            cancel_url: `${domainUrl}/dashboard_student?payment=cancel`,
         });
 
         res.json({ url: session.url });
