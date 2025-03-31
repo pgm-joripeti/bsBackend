@@ -28,7 +28,14 @@ import { fileURLToPath } from "url";
 
 dotenv.config();
 const app = express();
-app.options("*", cors()); // ✅ Laat alle OPTIONS preflight requests toe
+// app.options("*", cors()); // ✅ Laat alle OPTIONS preflight requests toe
+
+
+// ✅ 2. Webhook route ALTIJD VOOR express.json plaatsen!
+app.use("/api/stripe", webhookRoutes);
+
+app.use(express.json());
+
 
 // Middleware
 app.use(cors({
@@ -44,10 +51,6 @@ app.use(cors({
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-app.use("/api/stripe", webhookRoutes); // moet voor de json parser komen van express.json()
-
-app.use(express.json());
 
 // content security policy om images van supabase toe te staan en onze pagina's in te laden (maar geen flash of andere objecten)
 // ✅ Helmet gebruiken met Content Security Policy (CSP)
