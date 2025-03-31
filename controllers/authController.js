@@ -2,6 +2,8 @@ import { supabaseService } from "../utilities/db.js";
 import dotenv from "dotenv";
 dotenv.config();
 
+const frontendURL = process.env.FRONTEND_URL;
+
 export const register = async (req, res) => {
     const { email, password, full_name, nickname, role, school_id, program_id, grade_id } = req.body;
 
