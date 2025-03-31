@@ -33,9 +33,9 @@ app.options("*", cors()); // ✅ Laat alle OPTIONS preflight requests toe
 // Middleware
 app.use(cors({
   origin: [
-    "http://localhost:5173",
-    "https://a9ab-2a02-a03f-eafa-9000-a4a6-25f-4866-7f26.ngrok-free.app",
-    "https://bs-frontend-silk.vercel.app"
+    "http://localhost:5173", // development met vite dev
+    "http://localhost:4173", //vite preview
+    "https://bs-frontend-silk.vercel.app" // productie op vercel
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],

@@ -153,7 +153,7 @@ export async function requestPasswordReset(req, res) {
 
     try {
         const { error } = await supabaseService.auth.resetPasswordForEmail(email, {
-            redirectTo: "http://localhost:3000/#/reset-password", // Vervang dit in productie
+            redirectTo: `${frontendURL}/#/password-update` , // Vervang dit in productie
         });
 
         if (error) throw error;
